@@ -79,13 +79,29 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="W1cked">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="#sql注入学习笔记 ###0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 ###0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql注入">
+<meta property="og:url" content="http://yoursite.com/2019/02/27/sql注入/index.html">
 <meta property="og:site_name" content="W1cked">
+<meta property="og:description" content="#sql注入学习笔记 ###0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 ###0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MY">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/L38A71R.jpg">
+<meta property="og:image" content="https://i.imgur.com/gJUg3un.png">
+<meta property="og:image" content="https://i.imgur.com/ob5vx1k.png">
+<meta property="og:image" content="https://i.imgur.com/c42wKwr.png">
+<meta property="og:image" content="https://i.imgur.com/HTGyyuq.png">
+<meta property="og:image" content="https://i.imgur.com/xnaGtcU.png">
+<meta property="og:image" content="https://i.imgur.com/ICYVERQ.png">
+<meta property="og:image" content="https://i.imgur.com/Trv56un.png">
+<meta property="og:image" content="https://i.imgur.com/srv7P07.png">
+<meta property="og:image" content="https://i.imgur.com/AY3PlbR.png">
+<meta property="og:image" content="https://i.imgur.com/aLBeogJ.png">
+<meta property="og:updated_time" content="2019-02-27T06:56:37.014Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="W1cked">
+<meta name="twitter:title" content="sql注入">
+<meta name="twitter:description" content="#sql注入学习笔记 ###0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 ###0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MY">
+<meta name="twitter:image" content="https://i.imgur.com/L38A71R.jpg">
 
 
 
@@ -115,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/27/sql注入/">
 
 
 
 
 
-  <title>W1cked</title>
+  <title>sql注入 | W1cked</title>
   
 
 
@@ -140,8 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/27/sql注入/" itemprop="url">sql注入</a></h1>
+          <h1 class="post-title" itemprop="name headline">sql注入</h1>
         
 
         <div class="post-meta">
@@ -298,9 +311,7 @@
       
 
       
-        
-          
-            <p>#sql注入学习笔记</p>
+        <p>#sql注入学习笔记</p>
 <p>###0x00 什么是SQL<br>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。</p>
 <p>###0x01 MYSQL简介<br>MYSQL是一种关系数据库管理系统，<strong>关系数据库将数据库保存在不同表中</strong>，可以提高速度并提高灵活性。<br><br><br>MYSQL所使用的SQL语言适用于访问数据库的最常用语言</p>
 <p>###0x02 MYSQL数据库结构<br>数据库——表——列——字段<br><img src="https://i.imgur.com/L38A71R.jpg" alt></p>
@@ -392,8 +403,6 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))=101 --
 information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98</code><br>####注入思路<br>只需从ascii码的1遍历到127即可知道第一位的字符，然后再令substr(a,2,1)或者mid(a,2,1),来获取第二位。<br><br>爆破就可以用常见burp的intruder进行爆破</li>
 </ul>
 
-          
-        
       
     </div>
     
@@ -410,224 +419,28 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/文件上传/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="W1cked">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1cked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/文件上传/" itemprop="url">文件上传</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T13:59:06+08:00">
-                2019-02-24
-              </time>
+              <a href="/2019/02/24/文件上传/" rel="next" title="文件上传">
+                <i class="fa fa-chevron-left"></i> 文件上传
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>#文件上传</p>
-<p>##概述<br>Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。</p>
-<p>##DVWA文件上传</p>
-<p>###LOW<br>先看一下源码<br><br>     &lt;?php<br>    if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename( $_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-
-    if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo &apos;Your image was not uploaded.&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-      } else {
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo $target_path . &apos; succesfully uploaded!&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-    }
-
-}
-</code></pre><p>?&gt; <br><br>DVWA_WEB_PAGE_TO_ROOT为网页的根目录，target_path变量为上传文件的绝对路径，basename( $_FILES[‘uploaded’][‘name’])将文件中已经“uploaded”的文件的名字取出并加入到target_path变量中。if语句判断文件是否上传到指定的路径中，若没有则显示没有上传。总的可见，此级别没有对上传文件的类型进行任何的过滤，也就是可以随意上传php文件。<br><br>所以直接上传一个一句话木马<code>&lt;?php echo shell_exec($_GET[&#39;cmd&#39;]);?&gt;</code><img src="https://i.imgur.com/dtYR03v.png" alt><img src="https://i.imgur.com/n8kO9om.png" alt>他这里可以直接看到路径加上cmd参数可以直接使用命令。</p>
-<p>###Medium<br>查看源码<br>     &lt;?php<br>    if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-    $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];
-    $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;];
-    $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];
-
-    if (($uploaded_type == &quot;image/jpeg&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){
-
-
-        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo &apos;Your image was not uploaded.&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-          } else {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo $target_path . &apos; succesfully uploaded!&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-            }
-    }
-    else{
-        echo &apos;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&apos;;
-    }
-}
-</code></pre><p>?&gt; <br><br>这里较low增加了<br><code>$uploaded_name = $_FILES[&#39;uploaded&#39;][&#39;name&#39;];
-        $uploaded_type = $_FILES[&#39;uploaded&#39;][&#39;type&#39;];
-        $uploaded_size = $_FILES[&#39;uploaded&#39;][&#39;size&#39;];</code><br>文件名，文件类型，文件大小<img src="https://i.imgur.com/iVUsC4f.png" alt>这里直接上传就传不上去了<br><br>因为在if语句中判断上传文件的类型是否为“image/jpeg”和大小是否小于100kb。这里也只是简单地设置检测文件的类型，因此可以通过burpsuite来修改文件的类型进行过滤即可。<br><img src="https://i.imgur.com/r7b3P0U.png" alt><br>将content-type:改为image/jpeg可和上面一样得到路径。</p>
-<p>###High<br>查看源码<br>     &lt;?php<br>if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-    $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];
-    $uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, &apos;.&apos;) + 1);
-    $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];
-
-    if (($uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){
-
-
-        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo &apos;Your image was not uploaded.&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-          } else {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo $target_path . &apos; succesfully uploaded!&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-            }
-    }
-
-    else{
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo &apos;Your image was not uploaded.&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-    }
-}
-</code></pre><p>?&gt; <br><br>通过这句<br><code>$uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000</code><br>可知high级别限制了文件后缀名可以继续用burp改包。<img src="https://i.imgur.com/r4G6EWw.png" alt>或者直接把1.php的文件名改为1.php.jpg也可以传上去</p>
-<p>##利用</p>
-<p>###1、结合解析漏洞：<br><br>1、直接解析（几乎没有防御）：<br><br>比如直接上传一个扩展名是.php 的文件，只需要简单地绕过客户端javascript 检测或者服务端MIME 类型检测就行了。<br><br>2、配合解析(有一定程度的防御)：<br><br>可以理解为先将代码注入到服务器上，上传一个带有一句话木马的图片或文件，等待一个解析的配合来实现攻击。<br><br>(1)、本地文件包含解析：主要是PHP本地文件包含<br><br>(2)、.htaccess文件解析<br><br>(3)、Web应用程序解析漏洞以及其原理：<br>1.Apache 解析漏洞：<br>解析： test.php.abc（其中abc为任意不属于黑名单且也不属于Apache解析白名单的名称）<br>描述：一个文件名为x1.x2.x3的文件，Apache 会从x3的位置往x1的位置开始尝试解析，如果x3不属于Apache能解析的扩展名，那么Apache会尝试去解析x2的位置，这样一直往前尝试，直到遇到一个能解析的扩展名为止。2.Nginx 解析漏洞：<br>解析：abc/def.php 或 abc%00.php （其中abc、def都为任意文件名）<br>描述：目前Nginx 主要有这两种漏洞，一个是对任意文件名，在后面添加/abc.php 的解析漏洞，如原本文件名是test.jpg则可以添加为test.jpg/x.php进行解析攻击。还有一种是对低版本的Nginx 可以在任意文件名后面添加%00.php 进行解析攻击。</p>
-<p>###2、结合文件包含漏洞：<br><img src="https://i.imgur.com/xtJNihy.png" alt><br>首先上传一个1.txt的文件<code>&lt;?php phpinfo();?&gt;</code>在文件包含漏洞中会将该文件以PHP来运行。</p>
-<p>##检测方法<br><strong>直接上传各种类型的文件，再通过Burpsuite修改各个可以绕过的检测内容来检测</strong></p>
-<p>##防御方法<br>搬运<br><br>1、客户端JavaScript检测：通常为检测文件扩展名)<br>2、服务端MIME 类型检测：检测Content-Type内容)<br>3、服务端目录路径检测：检测跟path参数相关的内容<br>4、服务端文件扩展名检测：检测跟文件extension 相关的内容<br><br>目前防御方法学习还没有进行完还需要继续学习。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -637,138 +450,11 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="W1cked">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1cked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T12:44:24+08:00">
-                2019-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -776,6 +462,10 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
 
 
           
+
+  
+
+
 
         </div>
         
@@ -796,8 +486,17 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -839,6 +538,22 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#SQL注入产生的原因"><span class="nav-number">1.</span> <span class="nav-text">SQL注入产生的原因</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -979,6 +694,10 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
