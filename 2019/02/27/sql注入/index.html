@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
+<meta name="description" content="0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql注入">
 <meta property="og:url" content="http://yoursite.com/2019/02/27/sql注入/index.html">
 <meta property="og:site_name" content="W1cked">
-<meta property="og:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
+<meta property="og:description" content="0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/L38A71R.jpg">
 <meta property="og:image" content="https://i.imgur.com/gJUg3un.png">
@@ -98,10 +98,10 @@
 <meta property="og:image" content="https://i.imgur.com/srv7P07.png">
 <meta property="og:image" content="https://i.imgur.com/AY3PlbR.png">
 <meta property="og:image" content="https://i.imgur.com/aLBeogJ.png">
-<meta property="og:updated_time" content="2019-03-06T06:59:00.276Z">
+<meta property="og:updated_time" content="2019-03-06T07:01:24.091Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入">
-<meta name="twitter:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
+<meta name="twitter:description" content="0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta name="twitter:image" content="https://i.imgur.com/L38A71R.jpg">
 
 
@@ -372,7 +372,7 @@
       
 
       
-        <h1 id="sql注入学习笔记"><a href="#sql注入学习笔记" class="headerlink" title="sql注入学习笔记"></a>sql注入学习笔记</h1><h2 id="0x00-什么是SQL"><a href="#0x00-什么是SQL" class="headerlink" title="0x00 什么是SQL"></a>0x00 什么是SQL</h2><p>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。<br><a id="more"></a></p>
+        <h2 id="0x00-什么是SQL"><a href="#0x00-什么是SQL" class="headerlink" title="0x00 什么是SQL"></a>0x00 什么是SQL</h2><p>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。<br><a id="more"></a></p>
 <h2 id="0x01-MYSQL简介"><a href="#0x01-MYSQL简介" class="headerlink" title="0x01 MYSQL简介"></a>0x01 MYSQL简介</h2><p>MYSQL是一种关系数据库管理系统，<strong>关系数据库将数据库保存在不同表中</strong>，可以提高速度并提高灵活性。<br><br><br>MYSQL所使用的SQL语言适用于访问数据库的最常用语言</p>
 <h2 id="0x02-MYSQL数据库结构"><a href="#0x02-MYSQL数据库结构" class="headerlink" title="0x02 MYSQL数据库结构"></a>0x02 MYSQL数据库结构</h2><p>数据库——表——列——字段<br><img src="https://i.imgur.com/L38A71R.jpg" alt></p>
 <h2 id="0x03-数据库查询"><a href="#0x03-数据库查询" class="headerlink" title="0x03 数据库查询"></a>0x03 数据库查询</h2><h3 id="SQL基本语句"><a href="#SQL基本语句" class="headerlink" title="SQL基本语句"></a>SQL基本语句</h3><ul>
@@ -637,7 +637,7 @@ information_schema.tables where tables_schema=database() limit 0,1),1,1))&gt;98<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql注入学习笔记"><span class="nav-number">1.</span> <span class="nav-text">sql注入学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-什么是SQL"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 什么是SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-MYSQL简介"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 MYSQL简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-MYSQL数据库结构"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 MYSQL数据库结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-数据库查询"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 数据库查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL基本语句"><span class="nav-number">1.4.1.</span> <span class="nav-text">SQL基本语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他语句"><span class="nav-number">1.4.2.</span> <span class="nav-text">其他语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-什么是sql注入"><span class="nav-number">1.5.</span> <span class="nav-text">0x04 什么是sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL注入产生的原因"><span class="nav-number">1.5.1.</span> <span class="nav-text">SQL注入产生的原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-SQL注入种类"><span class="nav-number">1.6.</span> <span class="nav-text">0x05 SQL注入种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-系统函数"><span class="nav-number">1.7.</span> <span class="nav-text">0x06 系统函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07-注入流程"><span class="nav-number">1.8.</span> <span class="nav-text">0x07 注入流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09-基于布尔SQL盲注—构造逻辑判断"><span class="nav-number">1.9.</span> <span class="nav-text">0x09 基于布尔SQL盲注—构造逻辑判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本函数"><span class="nav-number">1.9.1.</span> <span class="nav-text">基本函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盲注语句"><span class="nav-number">1.9.2.</span> <span class="nav-text">盲注语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注入思路"><span class="nav-number">1.9.3.</span> <span class="nav-text">注入思路</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-什么是SQL"><span class="nav-number">1.</span> <span class="nav-text">0x00 什么是SQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-MYSQL简介"><span class="nav-number">2.</span> <span class="nav-text">0x01 MYSQL简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-MYSQL数据库结构"><span class="nav-number">3.</span> <span class="nav-text">0x02 MYSQL数据库结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-数据库查询"><span class="nav-number">4.</span> <span class="nav-text">0x03 数据库查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL基本语句"><span class="nav-number">4.1.</span> <span class="nav-text">SQL基本语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他语句"><span class="nav-number">4.2.</span> <span class="nav-text">其他语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x04-什么是sql注入"><span class="nav-number">5.</span> <span class="nav-text">0x04 什么是sql注入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL注入产生的原因"><span class="nav-number">5.1.</span> <span class="nav-text">SQL注入产生的原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x05-SQL注入种类"><span class="nav-number">6.</span> <span class="nav-text">0x05 SQL注入种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x06-系统函数"><span class="nav-number">7.</span> <span class="nav-text">0x06 系统函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x07-注入流程"><span class="nav-number">8.</span> <span class="nav-text">0x07 注入流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x09-基于布尔SQL盲注—构造逻辑判断"><span class="nav-number">9.</span> <span class="nav-text">0x09 基于布尔SQL盲注—构造逻辑判断</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本函数"><span class="nav-number">9.1.</span> <span class="nav-text">基本函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#盲注语句"><span class="nav-number">9.2.</span> <span class="nav-text">盲注语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注入思路"><span class="nav-number">9.3.</span> <span class="nav-text">注入思路</span></a></li></ol></li></ol></div>
             
 
           </div>
