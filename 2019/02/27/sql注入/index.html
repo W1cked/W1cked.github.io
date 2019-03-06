@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MYSQL所使用的S">
+<meta name="description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta name="keywords" content="日常学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql注入">
 <meta property="og:url" content="http://yoursite.com/2019/02/27/sql注入/index.html">
 <meta property="og:site_name" content="W1cked">
-<meta property="og:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MYSQL所使用的S">
+<meta property="og:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.imgur.com/L38A71R.jpg">
 <meta property="og:image" content="https://i.imgur.com/gJUg3un.png">
@@ -98,10 +98,10 @@
 <meta property="og:image" content="https://i.imgur.com/srv7P07.png">
 <meta property="og:image" content="https://i.imgur.com/AY3PlbR.png">
 <meta property="og:image" content="https://i.imgur.com/aLBeogJ.png">
-<meta property="og:updated_time" content="2019-03-06T01:40:04.768Z">
+<meta property="og:updated_time" content="2019-03-06T01:46:46.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入">
-<meta name="twitter:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。 0x01 MYSQL简介MYSQL是一种关系数据库管理系统，关系数据库将数据库保存在不同表中，可以提高速度并提高灵活性。MYSQL所使用的S">
+<meta name="twitter:description" content="sql注入学习笔记0x00 什么是SQL结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。">
 <meta name="twitter:image" content="https://i.imgur.com/L38A71R.jpg">
 
 
@@ -372,7 +372,7 @@
       
 
       
-        <h1 id="sql注入学习笔记"><a href="#sql注入学习笔记" class="headerlink" title="sql注入学习笔记"></a>sql注入学习笔记</h1><h3 id="0x00-什么是SQL"><a href="#0x00-什么是SQL" class="headerlink" title="0x00 什么是SQL"></a>0x00 什么是SQL</h3><p>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。</p>
+        <h1 id="sql注入学习笔记"><a href="#sql注入学习笔记" class="headerlink" title="sql注入学习笔记"></a>sql注入学习笔记</h1><h3 id="0x00-什么是SQL"><a href="#0x00-什么是SQL" class="headerlink" title="0x00 什么是SQL"></a>0x00 什么是SQL</h3><p>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。<br><a id="more"></a></p>
 <h3 id="0x01-MYSQL简介"><a href="#0x01-MYSQL简介" class="headerlink" title="0x01 MYSQL简介"></a>0x01 MYSQL简介</h3><p>MYSQL是一种关系数据库管理系统，<strong>关系数据库将数据库保存在不同表中</strong>，可以提高速度并提高灵活性。<br><br><br>MYSQL所使用的SQL语言适用于访问数据库的最常用语言</p>
 <h3 id="0x02-MYSQL数据库结构"><a href="#0x02-MYSQL数据库结构" class="headerlink" title="0x02 MYSQL数据库结构"></a>0x02 MYSQL数据库结构</h3><p>数据库——表——列——字段<br><img src="https://i.imgur.com/L38A71R.jpg" alt></p>
 <h3 id="0x03-数据库查询"><a href="#0x03-数据库查询" class="headerlink" title="0x03 数据库查询"></a>0x03 数据库查询</h3><h4 id="SQL基本语句"><a href="#SQL基本语句" class="headerlink" title="SQL基本语句"></a>SQL基本语句</h4><ul>
