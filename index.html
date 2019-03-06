@@ -359,51 +359,22 @@
 
       
         
-          
-            <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p><strong>当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：</strong><br></p>
+          <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p><strong>当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：</strong><br></p>
 <ol>
 <li>require</li>
 <li>require_once</li>
 <li>include</li>
-<li>includeonce<br><br>这里说一下两个函数的区别：include在包含过程中如果出现错误，会抛出一个警告，但程序正常运行；require函数出现错误的时候，会直接报错并退出程序的执行。<br></li>
-</ol>
-<h2 id="文件包含漏洞的一般特征如下："><a href="#文件包含漏洞的一般特征如下：" class="headerlink" title="文件包含漏洞的一般特征如下："></a>文件包含漏洞的一般特征如下：</h2><ol>
-<li>?page=a.php</li>
-<li>?home=a.html</li>
-<li>?file=content</li>
-</ol>
-<h2 id="目录遍历（Directory-traversal）和文件包含（File-include）的一些区别："><a href="#目录遍历（Directory-traversal）和文件包含（File-include）的一些区别：" class="headerlink" title="目录遍历（Directory traversal）和文件包含（File include）的一些区别："></a>目录遍历（Directory traversal）和文件包含（File include）的一些区别：</h2><p>目录遍历是可以读取web根目录以外的其他目录，根源在于web application的路径访问权限设置不严，针对的是本系统。<br><br>文件包含是通过include函数将web根目录以外的目录的文件被包含进来，分为LFI本地文件包含和RFI远程文件包含。<br></p>
-<h2 id="几种经典的测试方法："><a href="#几种经典的测试方法：" class="headerlink" title="几种经典的测试方法："></a>几种经典的测试方法：</h2><p>?file=../../../../../etc/passwdd</p>
-<p>?page=file:///etc/passwd</p>
-<p>?home=main.cgi</p>
-<p>?page=<a href="http://www.a.com/1.php" target="_blank" rel="noopener">http://www.a.com/1.php</a></p>
-<p><a href="http://1.1.1.1/../../../../dir/file.txt" target="_blank" rel="noopener">http://1.1.1.1/../../../../dir/file.txt</a></p>
-<p>（通过多个../可以让目录回到根目录中然后再进入目标目录）</p>
-<h2 id="编码绕过字符过滤："><a href="#编码绕过字符过滤：" class="headerlink" title="编码绕过字符过滤："></a>编码绕过字符过滤：</h2><p>可以使用多种编码方式进行绕过</p>
-<p>%00嵌入任意位置</p>
-<p>.的利用</p>
-<h2 id="向量字典："><a href="#向量字典：" class="headerlink" title="向量字典："></a>向量字典：</h2><p>用于目录爆破猜测，在Kali的/usr/share/wfuzz/wordlist/vulns中保存有，如：</p>
-<p>general：目录猜解</p>
-<p>Injections：注入</p>
-<p>Stress：压力测试</p>
-<h2 id="包含上传文件："><a href="#包含上传文件：" class="headerlink" title="包含上传文件："></a>包含上传文件：</h2><p><img src="https://i.imgur.com/ASPWOZd.png" alt></p>
-<h2 id="PHP包含读文件"><a href="#PHP包含读文件" class="headerlink" title="PHP包含读文件"></a>PHP包含读文件</h2><p>常见的PHP伪协议：</p>
-<p>1.File:// 访问本地文件系统</p>
-<p>2.http:// 访问HTTP(S)网址</p>
-<p>3.php:// 访问各个输入/输出流</p>
-<p>4.data:// 数据<br><br>通常情况下，当我们去包含PHP源码的时候，源码会被解析我们就都不到源代码了，这时候就可以利用读文件的方式读取到PHP源码，我们可以使用：php://filter/read = convert.base64-encode/resource=xxx.php的方式，将PHP源码以Base64编码的形式读出来：</p>
-<p>bugku中就有一个flag在index的题<br><img src="https://i.imgur.com/0Jp9bT0.png" alt><br><img src="https://i.imgur.com/weeWYoz.png" alt><br>因为题目tipsflag在index里，所以发现file传值有问题<br>这里有一个通过php://filter读取本包含漏洞脚本的源码的问题<br>所以file的传值应为<code>php://filter/read=convert.base64-encode/resource=index.php</code><img src="https://i.imgur.com/CReyPIx.png" alt>得到一串base64编码<br>解码得到`<html><br>    <title>Bugku-ctf</title></html></p>
-<p>&lt;?php<br>    error_reporting(0);<br>    if(!$_GET[file]){echo ‘<a href="./index.php?file=show.php">click me? no</a>‘;}<br>    $file=$_GET[‘file’];<br>    if(strstr($file,”../“)||stristr($file, “tp”)||stristr($file,”input”)||stristr($file,”data”)){<br>        echo “Oh no!”;<br>        exit();<br>    }<br>    include($file);<br>//flag:flag{edulcni_elif_lacol_si_siht}<br>?&gt;<br></p>
-<p><html>`</html></p>
-<h2 id="PHP包含日志"><a href="#PHP包含日志" class="headerlink" title="PHP包含日志"></a>PHP包含日志</h2><p>当我们没有上传点，并且也没有url_allow_include功能时，我们就可以考虑包含服务器的日志文件，思路也比较简单，当我们访问网站时，服务器的日志中都会记录我们的行为，当我们访问链接中包含PHP一句话木马时，也会被记录到日志中。这时候我们如果知道服务器的日志位置，我们可以去包含这个文件从而拿到shell，这就比较像道格第二次培训的任务拿到服务器shell。</p>
-<h2 id="根据后端源码包含绕过"><a href="#根据后端源码包含绕过" class="headerlink" title="根据后端源码包含绕过"></a>根据后端源码包含绕过</h2><p>DVWA中级难度中源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="comment">// The page we wish to display</span></span><br><span class="line">	$file = $_GET[ <span class="string">'page'</span> ];</span><br><span class="line">	<span class="comment">// Input validation</span></span><br><span class="line">	$file = str_replace( <span class="keyword">array</span>( <span class="string">"http://"</span>, <span class="string">"https://"</span> ), <span class="string">""</span>, $file );</span><br><span class="line">	$file = str_replace( <span class="keyword">array</span>( <span class="string">"../"</span>, <span class="string">"..\""</span> ), <span class="string">""</span>, $file );</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这个主要是过滤了远程文件包含和我们目录的跳转，大小写混合输入就可以绕过远程文件包含的过滤<br><br>目录跳转的过滤我们可以构造….//….//xxx.php，方式绕过，由于他只过滤一次，我们可以利用他的过滤动态拼接目录跳转，从而绕过过滤<br><img src="https://i.imgur.com/FcOTJbR.png" alt></p>
-<h2 id="防御安全编码"><a href="#防御安全编码" class="headerlink" title="防御安全编码"></a>防御安全编码</h2><p>其实只要我们把包含的文件写死，不要利用变量来构造包含的文件，自然就可以避免漏洞的发生，dvwa的high里用的就是没办法包含的源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="comment">// The page we wish to display</span></span><br><span class="line">	$file = $_GET[ <span class="string">'page'</span> ];</span><br><span class="line">	<span class="comment">// Input validation&lt;br&gt;</span></span><br><span class="line">	<span class="keyword">if</span>( !fnmatch( <span class="string">"file*"</span>, $file ) &amp;&amp; $file != <span class="string">"include.php"</span> )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// This isn't the page we want!</span></span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"ERROR: File not found!"</span>;</span><br><span class="line">		<span class="keyword">exit</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-          
+<li>includeonce<br><br>这里说一下两个函数的区别：include在包含过程中如果出现错误，会抛出一个警告，但程序正常运行；require函数出现错误的时候，会直接报错并退出程序的执行。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/06/文件包含/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </li></ol></div>
     
     
     
@@ -765,21 +736,17 @@
 
       
         
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
