@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="日常学习,">
 
 
 
@@ -79,13 +79,24 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="W1cked">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="文件包含当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：  require require_once include includeonce这里说一下两个函数的区别：include在包含过程中如果出现错误，会抛出一个警告，但程序正常运行；require函数出现错误的时候，会直接报错并退出程序的执行。  文件包含漏洞的一般特">
+<meta name="keywords" content="日常学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件包含">
+<meta property="og:url" content="http://yoursite.com/2019/03/06/文件包含/index.html">
 <meta property="og:site_name" content="W1cked">
+<meta property="og:description" content="文件包含当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：  require require_once include includeonce这里说一下两个函数的区别：include在包含过程中如果出现错误，会抛出一个警告，但程序正常运行；require函数出现错误的时候，会直接报错并退出程序的执行。  文件包含漏洞的一般特">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.imgur.com/ASPWOZd.png">
+<meta property="og:image" content="https://i.imgur.com/0Jp9bT0.png">
+<meta property="og:image" content="https://i.imgur.com/weeWYoz.png">
+<meta property="og:image" content="https://i.imgur.com/CReyPIx.png">
+<meta property="og:image" content="https://i.imgur.com/FcOTJbR.png">
+<meta property="og:updated_time" content="2019-03-06T07:11:33.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="W1cked">
+<meta name="twitter:title" content="文件包含">
+<meta name="twitter:description" content="文件包含当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：  require require_once include includeonce这里说一下两个函数的区别：include在包含过程中如果出现错误，会抛出一个警告，但程序正常运行；require函数出现错误的时候，会直接报错并退出程序的执行。  文件包含漏洞的一般特">
+<meta name="twitter:image" content="https://i.imgur.com/ASPWOZd.png">
 
 
 
@@ -115,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/06/文件包含/">
 
 
 
 
 
-  <title>W1cked</title>
+  <title>文件包含 | W1cked</title>
   
 
 
@@ -140,8 +151,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <a href="https://github.com/W1cked" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,9 +284,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -306,9 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/06/文件包含/" itemprop="url">文件包含</a></h1>
+          <h1 class="post-title" itemprop="name headline">文件包含</h1>
         
 
         <div class="post-meta">
@@ -358,9 +366,7 @@
       
 
       
-        
-          
-            <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p><strong>当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：</strong><br></p>
+        <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p><strong>当程序员在编写代码的过程中，由于使用PHP文件包含函数过滤不严，从而导致了文件包含漏洞。在PHP中用于文件包含的函数有四个：</strong><br></p>
 <ol>
 <li>require</li>
 <li>require_once</li>
@@ -400,8 +406,6 @@
 <p>这个主要是过滤了远程文件包含和我们目录的跳转，大小写混合输入就可以绕过远程文件包含的过滤<br><br>目录跳转的过滤我们可以构造….//….//xxx.php，方式绕过，由于他只过滤一次，我们可以利用他的过滤动态拼接目录跳转，从而绕过过滤<br><img src="https://i.imgur.com/FcOTJbR.png" alt></p>
 <h2 id="防御安全编码"><a href="#防御安全编码" class="headerlink" title="防御安全编码"></a>防御安全编码</h2><p>其实只要我们把包含的文件写死，不要利用变量来构造包含的文件，自然就可以避免漏洞的发生，dvwa的high里用的就是没办法包含的源码<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="comment">// The page we wish to display</span></span><br><span class="line">	$file = $_GET[ <span class="string">'page'</span> ];</span><br><span class="line">	<span class="comment">// Input validation&lt;br&gt;</span></span><br><span class="line">	<span class="keyword">if</span>( !fnmatch( <span class="string">"file*"</span>, $file ) &amp;&amp; $file != <span class="string">"include.php"</span> )</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">// This isn't the page we want!</span></span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"ERROR: File not found!"</span>;</span><br><span class="line">		<span class="keyword">exit</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 
-          
-        
       
     </div>
     
@@ -416,262 +420,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/27/sql注入/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="W1cked">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1cked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/27/sql注入/" itemprop="url">sql注入</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-27T14:55:42+08:00">
-                2019-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/日常学习/" rel="tag"># 日常学习</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="0x00-什么是SQL"><a href="#0x00-什么是SQL" class="headerlink" title="0x00 什么是SQL"></a>0x00 什么是SQL</h2><p>结构化查询语言(Structured Query Language)简称SQL，是一种特殊目的的编程语言，是一种数据库查询和程序设计语言，用于存取数据以及查询、更新和管理关系数据库系统；同时也是数据库脚本文件的扩展名。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/sql注入/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/27/sql注入/" rel="next" title="sql注入">
+                <i class="fa fa-chevron-left"></i> sql注入
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/文件上传/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="W1cked">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1cked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/文件上传/" itemprop="url">文件上传</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T13:59:06+08:00">
-                2019-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Web站点一般会有用户注册的功能，当用户注册之后，大多数情况下都会存在类似头像上传等个性化的设置，这些功能点往往存在上传验证方式不严格的安全缺陷，这些安全缺陷在Web渗透中是非常关键的突破口，只要经过仔细测试分析上传验证机制，往往就能找到绕过验证的方法，进而上传恶意代码获取整个Web业务控制权，复杂一点的情况是配合 Web Server的解析漏洞来获取控制权。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/24/文件上传/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -681,138 +459,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="W1cked">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="W1cked">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T12:44:24+08:00">
-                2019-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -820,6 +471,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -840,8 +495,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -908,6 +572,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件包含"><span class="nav-number">1.</span> <span class="nav-text">文件包含</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件包含漏洞的一般特征如下："><span class="nav-number">1.1.</span> <span class="nav-text">文件包含漏洞的一般特征如下：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录遍历（Directory-traversal）和文件包含（File-include）的一些区别："><span class="nav-number">1.2.</span> <span class="nav-text">目录遍历（Directory traversal）和文件包含（File include）的一些区别：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种经典的测试方法："><span class="nav-number">1.3.</span> <span class="nav-text">几种经典的测试方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编码绕过字符过滤："><span class="nav-number">1.4.</span> <span class="nav-text">编码绕过字符过滤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量字典："><span class="nav-number">1.5.</span> <span class="nav-text">向量字典：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包含上传文件："><span class="nav-number">1.6.</span> <span class="nav-text">包含上传文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP包含读文件"><span class="nav-number">1.7.</span> <span class="nav-text">PHP包含读文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP包含日志"><span class="nav-number">1.8.</span> <span class="nav-text">PHP包含日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据后端源码包含绕过"><span class="nav-number">1.9.</span> <span class="nav-text">根据后端源码包含绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#防御安全编码"><span class="nav-number">1.10.</span> <span class="nav-text">防御安全编码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1054,6 +734,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
