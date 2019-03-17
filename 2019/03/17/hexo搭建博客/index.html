@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="hexo,">
 
 
 
@@ -79,14 +79,18 @@
 
 
 
+<meta name="description" content="环境配置安装git NodeJsgit下载：http://git-scm.com/downloads node.js下载：http://nodejs.org/download/ 两者都可以按默认配置安装，想深入了解git可以去看廖雪峰的git入门教程。">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建博客">
+<meta property="og:title" content="hexo搭建博客一">
 <meta property="og:url" content="http://yoursite.com/2019/03/17/hexo搭建博客/index.html">
 <meta property="og:site_name" content="W1cked">
+<meta property="og:description" content="环境配置安装git NodeJsgit下载：http://git-scm.com/downloads node.js下载：http://nodejs.org/download/ 两者都可以按默认配置安装，想深入了解git可以去看廖雪峰的git入门教程。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-17T15:30:08.415Z">
+<meta property="og:updated_time" content="2019-03-17T16:27:07.079Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo搭建博客">
+<meta name="twitter:title" content="hexo搭建博客一">
+<meta name="twitter:description" content="环境配置安装git NodeJsgit下载：http://git-scm.com/downloads node.js下载：http://nodejs.org/download/ 两者都可以按默认配置安装，想深入了解git可以去看廖雪峰的git入门教程。">
 
 
 
@@ -122,7 +126,7 @@
 
 
 
-  <title>hexo搭建博客 | W1cked</title>
+  <title>hexo搭建博客一 | W1cked</title>
   
 
 
@@ -286,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo搭建博客</h1>
+          <h1 class="post-title" itemprop="name headline">hexo搭建博客一</h1>
         
 
         <div class="post-meta">
@@ -336,7 +340,29 @@
       
 
       
-        
+        <h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><h3 id="安装git-NodeJs"><a href="#安装git-NodeJs" class="headerlink" title="安装git NodeJs"></a>安装git NodeJs</h3><p>git下载：<a href="http://git-scm.com/downloads" target="_blank" rel="noopener">http://git-scm.com/downloads</a></p>
+<p>node.js下载：<a href="http://nodejs.org/download/" target="_blank" rel="noopener">http://nodejs.org/download/</a></p>
+<p>两者都可以按默认配置安装，想深入了解git可以去看廖雪峰的git入门教程。<br><a id="more"></a></p>
+<h2 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h2><h3 id="注册github"><a href="#注册github" class="headerlink" title="注册github"></a>注册github</h3><p>地址：<a href="https://github.com/" target="_blank" rel="noopener"> https://github.com/</a></p>
+<h3 id="创建github库"><a href="#创建github库" class="headerlink" title="创建github库"></a>创建github库</h3><p>注意创建的库名要与你的用户名一致 youname.github.io</p>
+<p>仓库创建一段时间后就可以通过访问<a href="https://youname.github.io来设置访问地址，所以每个github账户只能创建一个这样的库。" target="_blank" rel="noopener">https://youname.github.io来设置访问地址，所以每个github账户只能创建一个这样的库。</a></p>
+<h3 id="配置SSH"><a href="#配置SSH" class="headerlink" title="配置SSH"></a>配置SSH</h3><p>打开 Git Bash ，执行下面的命令生成 SSH 访问私钥及公钥。</p>
+<p>$ ssh-keygen -t rsa -C “<a href="mailto:email@email.com" target="_blank" rel="noopener">email@email.com</a>”<br>ssh | 300*0<br>输入命令回车之后会提示你输入一些东西，不用管。一直回车到底就好了。然后你的 ~/.ssh 文件下就会生成两个文件 id_rsa 和 id_rsa.pub 。</p>
+<p>打开你的 Github -&gt; setting -&gt; SSH Keys 。然后点击 New SSH Key 创建一个新的SSH Key。Title 可以用你的计算机名，可以用以区分。将文件 id_rsa.pub 中的所以内容复制粘贴到 Key 下面。然后使用下面的命令测试是否可以连接上 Github 。</p>
+<p>$ ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a></p>
+<h2 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h2><p>打开Git命令行<br>    $ npm install -g hexo</p>
+<h3 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h3><p>在电脑上建立一个自己博客的文件夹（如E:\Hexo，以下教程都以这个目录为博客根目录），然后在此目录下打开Git Bash，执行如下命令<code>$ hexo init</code></p>
+<p>这时在该目录下会生成</p>
+<p>source：用于存放我们用markdown编写的博文源文件和静态资源<br><br>themes：用于存放主题文件，每个主题也有自己的主题配置文件_config.yml文件<be><br>_config.yml：站点配置文件，用于配置博客信息，如作者，博客名称等</be></p>
+<p>最后加一句<code>$ npm install</code></p>
+<h2 id="Hexo命令"><a href="#Hexo命令" class="headerlink" title="Hexo命令"></a>Hexo命令</h2><h3 id="启动Server"><a href="#启动Server" class="headerlink" title="启动Server"></a>启动Server</h3><p>运行命令<code>$ hexo server</code></p>
+<p>Hexo server启动后，在浏览器中打开<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> 即可访问自己的博客，按Ctrl+C停止</p>
+<h3 id="生成静态网页"><a href="#生成静态网页" class="headerlink" title="生成静态网页"></a>生成静态网页</h3><p>运行以下命令，将markdown文件生成静态网页。<code>$ hexo generate</code></p>
+<h3 id="修改站点配置文件"><a href="#修改站点配置文件" class="headerlink" title="修改站点配置文件"></a>修改站点配置文件</h3><p>修改位于E:\Hexo目录下的_config.yml文件<br>找到以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type:</span><br></pre></td></tr></table></figure></p>
+<p>修改为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: http://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/youname/youname.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<h3 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h3><p>运行命令<code>$ hexo deploy</code></p>
+<h2 id="命令总结"><a href="#命令总结" class="headerlink" title="命令总结"></a>命令总结</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&apos;ctrl + c&apos;关闭server）</span><br><span class="line">hexo deploy #将.deploy目录部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+<h3 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n == hexo new</span><br><span class="line">hexo g == hexo generate</span><br><span class="line">hexo s == hexo server</span><br><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -379,6 +405,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
       
 
       
@@ -449,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -480,7 +521,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -539,6 +580,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境配置"><span class="nav-number">1.</span> <span class="nav-text">环境配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装git-NodeJs"><span class="nav-number">1.1.</span> <span class="nav-text">安装git NodeJs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置GitHub"><span class="nav-number">2.</span> <span class="nav-text">配置GitHub</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册github"><span class="nav-number">2.1.</span> <span class="nav-text">注册github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github库"><span class="nav-number">2.2.</span> <span class="nav-text">创建github库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置SSH"><span class="nav-number">2.3.</span> <span class="nav-text">配置SSH</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo安装"><span class="nav-number">3.</span> <span class="nav-text">Hexo安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化博客"><span class="nav-number">3.1.</span> <span class="nav-text">初始化博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo命令"><span class="nav-number">4.</span> <span class="nav-text">Hexo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Server"><span class="nav-number">4.1.</span> <span class="nav-text">启动Server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成静态网页"><span class="nav-number">4.2.</span> <span class="nav-text">生成静态网页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改站点配置文件"><span class="nav-number">4.3.</span> <span class="nav-text">修改站点配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">4.4.</span> <span class="nav-text">部署到github</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令总结"><span class="nav-number">5.</span> <span class="nav-text">命令总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用命令"><span class="nav-number">5.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令简写"><span class="nav-number">5.2.</span> <span class="nav-text">命令简写</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
